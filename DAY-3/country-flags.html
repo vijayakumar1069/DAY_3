@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var xhr = new XMLHttpRequest();
+      var method = "GET";
+      var url = "https://restcountries.com/v3.1/all";
+      xhr.open("GET", url, true);
+      xhr.onload = function () {
+        if ( xhr.status == 200) {
+            var res=JSON.parse(xhr.responseText);
+            for(let i=0;i<res.length;i++) {
+                //console.log(res[i]);
+                console.log(res[i].flag);
+                // console.log(res[i].name.common);
+                // console.log(res[i].region);
+                // console.log(res[i].subregion);
+                // console.log(res[i].population);
+                // console.log(res[i].languages.ara)
+            }
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>

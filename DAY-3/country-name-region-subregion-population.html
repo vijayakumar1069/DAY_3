@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x=new XMLHttpRequest();
+        var method="GET";
+        var url="https://restcountries.com/v3.1/all";
+        x.open(method,url,true);
+        x.onload=function(){
+            if(x.status==200)
+            {
+                var y=JSON.parse(x.responseText);
+                for(let i=0;i<y.length;i++){
+                    // console.log(y[i])
+                    console.log(y[i].name.common)
+                    console.log(y[i].region)
+                    console.log(y[i].subregion)
+                    console.log(y[i].population)
+
+
+                    // using OBJECT instead
+                    // const res={name:y[i].name.common,
+                    //             region:y[i].region,
+                    //             subregion:y[i].subregion,
+                    //             population:y[i].population
+                    //          }
+                    //          console.log(res)
+            }
+        }
+    }
+        x.send();
+    </script>
+</body>
+</html>
